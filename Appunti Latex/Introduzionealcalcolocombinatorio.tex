@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+\geometry{margin=2cm}
+
+\title{Introduzione al calcolo combinatorio}
+\author{Lorenzo Vaccarecci}
+\date{29 Febbraio 2024}
+
+\graphicspath{{./Immagini/}}
+\newtheorem{example}{Esempio}
+
+\begin{document}
+\maketitle
+\section{Esperimento}
+Azione con \(N\) risultati possibili.\\
+\begin{example}
+Lancio di un dado. \(N=6\)\\
+Lancio di una moneta.\(N=2\)\\
+\end{example}
+\section{Principio Base}
+2 esperimenti con \(N\) e \(M\) risultati possibili, i risultati possibili sono \(N\cdot M\)
+\begin{description}
+    \item[Esercizio] Quante combinazioni sono possibili con una targa? Quante senza duplicati?
+    \item[] Nella targa ci sono 4 lettere (nell'alfabeto 26) e 3 cifre (10 numeri da 0 a 9).
+    \item[] Le combinazioni possibili sono \(26^4\cdot 10^3\)
+    \item[] Senza duplicati: \(26\cdot 25\cdot 24\cdot 23\cdot 10\cdot 9\cdot 8\)
+\end{description}
+\section{Permutazione}
+Ordinamento di \(N\) oggetti.\\
+\(N!=N\cdot(N-1)\cdot(N-2)\dots1\)
+\begin{description}
+    \item[Esercizio] Numero ordinamenti su uno scaffale e raggruppati di 2 libri di chimica, 3 di fisica, 4 di matematica e 5 di informatica.
+    \item[] Numero di ordinamenti \(=14!\)
+    \item[] Raggruppati \(2!3!4!5! \cdot 4!\) (4 è il numero di gruppi)
+\end{description}
+\section{Disposizione}
+Ordinamento di \(i\) oggetti tra \(N\) oggetti.\\
+\(N\cdot(N-1)\dots(N-i+1)=\frac{N!}{(N-i)!}\)
+\begin{description}
+    \item[Esercizio] Anagrammi
+    \item[Cinema] \(6!\)
+    \item[Errore] \(\frac{6!}{3!2!}\) (a denominatore abbiamo le lettere duplicate 3 "R" e 2 "E", a numeratore il numero totale di lettere)
+\end{description}
+\section{Combinazione}
+Scelta di \(i\) oggetti tra \(N\) oggetti.\\
+\(\frac{N!}{i!(N-i)!}=\binom{N}{i}\) detto anche "Binomio di Newton"
+\begin{description}
+    \item[Esercizio] Comitato di 3 persone su 20.
+    \item[] \(\frac{20!}{3!17!}=\frac{20\cdot 19 \cdot 18}{3\cdot 2}= 60\cdot 19\) 
+\end{description}
+\end{document}
