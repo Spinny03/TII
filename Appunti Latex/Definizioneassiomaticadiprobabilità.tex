@@ -1,0 +1,32 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+\geometry{margin=2cm}
+
+\title{Definizione assiomatica di probabilità}
+\author{Lorenzo Vaccarecci}
+\date{1 Marzo 2024}
+
+\graphicspath{{./Immagini/}}
+\newtheorem{example}{Esempio}
+
+\begin{document}
+\maketitle
+\section{Nozioni fondamentali}
+\begin{description}
+    \item[Spazio campionario]: l'insieme \(S\) dei possibili risultati di un esperimento
+    \item[Evento]: un qualunque sottoinsieme \(E\) di \(S\) che si \textit{realizza} se il risultato dell'esperimento appartiene a \(E\)  
+\end{description}
+Indichiamo con \(E \cup F\) l'unione degli eventi \(E\) e \(F\) e con \(EF\) la loro intersezione. \(EF=\emptyset\) sono mutuamente esclusivi. L'evento \(E^{c}\)(tutto ciò che non ha \(E\)) tale che \(E\cup E^{c}=S\) è il complementare di \(E\). 
+\section{Assiomi}
+\begin{description}
+    \item[A1] \(0\leq P(E) \leq 1 \forall E \subseteq S\)
+    \item[A2] \(P(S)=1\)
+    \item[A3] Se gli eventi \(E_{i}\) con \(i=1,2,\dots\) sono mutuamente esclusivi, allora \(P(\cup_{i=1}^N E_{i})=\sum_{i = 1}^{N} P(E_{i})\)   
+\end{description}
+Se \(E \text{ e } F\) sono mutuamente esclusivi allora \(P(E \cup F)=P(E)+P(F)\).\\Se \(E \text{ e } F\) \textbf{non} sono mutuamente esclusivi allora \(P(E \cup F)=P(E)+P(F)-P(EF)\).
+\end{document}
