@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+\geometry{margin=2cm}
+
+\title{Probabilità Condizionata}
+\author{Lorenzo Vaccarecci}
+\date{7 Marzo 2024}
+
+\graphicspath{{./Immagini/}}
+\newtheorem{example}{Esempio}
+
+\begin{document}
+\maketitle
+In generale quando, dati due eventi $E$ e $F$, siamo interessati a calcolare la probabilità di $E$ quando sappiamo che si è realizzato $F$. La probabilità di $E$ condizionata a $F$, indicata come $P(E|F)$, è definita come
+\begin{equation*}
+    P(E|F)=\frac{P(EF)}{P(F)}
+\end{equation*}
+\begin{description}
+    \item[Osservazione 1] Lo spazio campionario si è ridotto da $S$ a $F$ e misura $P(F)$
+    \item[Osservazione 2] Quando non c'è intersezione, la probabilità è nulla
+    \item[Osservazione 3] \(P(E|F)=\frac{P((A\cup A^{C})F)}{P(F)}=\frac{P(AF)}{P(F)}+\frac{P(A^{C}F)}{P(F)}=P(A|F)+P(A^{C}|F)\)  
+\end{description}
+La probabilità condizionata soddisfa gli assiomi delle probabilità con $F$ come spazio campionario.
+\section{Regola della moltiplicazione}
+\textbf{Base: } \begin{equation*}
+    P(ABC)=P(AB|C)P(C)=P(A|BC)P(B|C)P(C)
+\end{equation*}
+\textbf{Generale: } \begin{equation*}
+    P(E_{1}E_{2}\dots E_{n})=P(E_{1})P(E_{2}|E_{1})P(E_{3}|E_{1}E_{2})\dots P(E_{n}|E_{1}E_{2}\dots E_{n-1})
+\end{equation*}
+\section{Teorema di Bayes}
+Per ogni coppia di eventi $E$ e $F$, applicando la definizione di probabilità condizionata, possiamo riscrivere $P(F|E)$ in termini di $P(E|F)$ (o viceversa). Ovvero
+\begin{equation*}
+    P(E|F) = \frac{P(E|F)P(E)}{P(F)}
+\end{equation*}
+\subsection*{Formula della probabilità assouluta}
+\begin{equation*}
+    P(E)=P(EF)+P(EF^{C})=P(F)P(E|F)+P(F^{C})P(E|F^{C})
+\end{equation*}
+Quindi il teorema di Bayes diventa:
+\begin{equation*}
+    P(F|E) = \frac{P(E|F)P(F)}{P(F)P(E|F)+P(F^{C})P(E|F^{C}}
+\end{equation*}
+\section{Eventi indipendenti}
+\begin{equation*}
+    P(EF)=P(E)\cdot P(F) \rightarrow P(E|F)=\frac{P(E)P(F)}{P(F)}=P(E)
+\end{equation*}
+\end{document}
