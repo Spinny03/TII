@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{pgfplots}
 
 \geometry{margin=2cm}
 
@@ -21,8 +22,43 @@ Una variabile casuale è una funzione a valori reali definita sullo spazio campi
 \subsection{Esempio}
 $X$ somma del lancio di due dadi.
 \section{Funzione di probabilità di massa}
-
+Nel caso di una variabile $X$ a valori discreti $x_{i}$ con $i=1,2,\dots,n$, la funzione di probabilità di massa $p(\cdot)$ definita sulla retta reale, o \textit{pmf} o anche solo \textit{funzione di probabilità}, contiene tutta l'informazione necessaria per descrivere completamente $X$. Si ha che \(p(x_{i})=P(X=x_{i})\geq 0 \text{ con } \sum_{i=1}^{n}p(x_{i})=1\).\\
+La notazione corretta sarebbe $p(\{x_{i}\})$
+\subsection{Esempio continuato}
+\(x_{1}=2,x_{2}=3,x_{3}=4,x_{4}=5,x_{5}=6,x_{6}=7,x_{7}=8,x_{8}=9,x_{9}=10,x_{10}=11,x_{11}=12\)\\
+\(p_{1}=\frac{1}{36},p_{2}=\frac{2}{36},p_{3}=\frac{3}{36},p_{4}=\frac{4}{36},p_{5}=\frac{5}{36},p_{6}=\frac{6}{36},p_{7}=\frac{5}{36},p_{8}=\frac{4}{36},p_{9}=\frac{3}{36},p_{10}=\frac{2}{36},p_{11}=\frac{1}{36}\)
 \section{Funzione di probabilità cumulata}
+Ordiniamo i valori $x_{i}$ in modo tale che $x_{1}<x_{2}<\dots<x_{i}<\dots<x_{n}$ e introduciamo la funzione di probabilità cumulata $F(a)$, o \textit{cdf}, definita come
+\begin{center}
+    \(F(a)=\sum_{x_{i}\leq a}p(x_{i})\)
+\end{center}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[xlabel=$x$, ylabel=$F(a)$, xmin=0, xmax=6,ymin=0,ymax=1,xtick={1,2,3,4,5,6},ytick={1/6,2/6,3/6,4/6,5/6,1},yticklabels={$\frac{1}{6}$,$\frac{2}{6}$,$\frac{3}{6}$,$\frac{4}{6}$,$\frac{5}{6}$,$1$}]
+            \addplot+[const plot, black] coordinates {(1,1/6) (2,2/6) (3,3/6) (4,4/6) (5,5/6) (6,1)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+L'\textit{i}-esimo gradino è localizzato nel punto $x_{i}$ e il salto corrispondente vale $P(x_{i})$. La somma di tutti i gradini, ovviamente, è sempre 1.
+\subsection{Valore atteso (o Speranza, Espettazione)}
+Il valore atteso $\mu$ di una variabile casuale $X$ è indicato con $\mathbb{E}\left[X\right]$ ed è la media pesata dei valori $x_{i}$ che può assumere $X$. Ogni $x_{i}$ è pesato con la sua probabilità $p(x_{i})$ e quindi si ha
+\begin{center}
+    \(\mu=\mathbb{E}\left[X\right]=\sum_{i=1}^{n}x_{i}p_{i}\)
+\end{center}
+Il valore atteso di una variabile casuale non è casuale!
 \section{Varianza}
+Una seconda quantità che cattura proprietà importanti di una variabile casuale $X$ è la varianza $Var(X)$ definita come $Var(X)=E\left[(X-\mu)^{2}\right]$.\\
+In parole povere è la dispersione dei valori intorno al valore medio.
+\subsection{Deviazione standard}
+Una quantità molto usata è la radice quadrata della varianza, nota come deviazione standard, o
+\begin{center}
+    \(SD(X)=\sqrt{Var(X)}\)
+\end{center}
 \section{Funzione di variabile aleatoria discreta}
+$g:\{x_{1},\dots,x_{n}\} \rightarrow \mathbb{R}$
+\begin{center}
+    \(\mathbb{E}\left[g(x)\right]=\sum_{i=1}^{n}g(x_{i})p_{i}\)
+\end{center}
+\subsection{Esempio}
+\(g(x)=5X+3 \rightarrow\\ \mathbb{E}\left[g(x)\right]=\sum_{i=1}^{n}(5x_{i}+3)p_{i}=\sum_{i=1}^{n}5x_{i}p_{i}+\sum_{i=1}^{n}3p_{i}=5\sum_{i=1}^{n}x_{i}p_{i}+3\sum_{i=1}^{n}p_{1}=5\mathbb{E}\left[X\right]+3\)
 \end{document}
