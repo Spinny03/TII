@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+
+\geometry{margin=2cm}
+
+\title{Variabili Casuali Continue}
+\author{Lorenzo Vaccarecci}
+\date{21 Marzo 2024}
+
+\graphicspath{{./Immagini/}}
+
+\begin{document}
+\maketitle
+\section{Funzione densità di probabilità}
+Una variabile casuale $X$ è continua se esiste una funzione $f:\mathbb{R}\rightarrow\mathbb{R}^{+}$ tale che
+\begin{equation*}
+    P(X\in B)=\int_{B}f(x)dx
+\end{equation*}
+e.g.
+\begin{equation*}
+    B=[-\epsilon,\epsilon] \quad P(X\in B)=\int_{-\epsilon}^{\epsilon}f(x)dx
+\end{equation*}
+su ogni sottoinsieme misurabile $B\subset \mathbb{R}$. La funzione $f$ è la \textit{densità di probabilità, o pdf}. La \textit{pdf} è parente stretta della \textit{pmf}
+\\Se prendiamo tutto:
+\begin{equation*}
+    \int f(x)dx = 1
+\end{equation*}
+\begin{equation*}
+    \mathbb{E}[X]=\int xf(x)dx
+\end{equation*}
+\begin{equation*}
+    \mathbb{E}[g(x)]=\int g(x)f(x)dx
+\end{equation*}
+\begin{equation*}
+    Var(X)=\int (x-\mathbb{E}[X])^{2}f(x)
+\end{equation*}
+* La $x$ equivale alla $i$ delle variabili discrete e la $f(x)$ equivale a $p_{i}$, infatti le formule sono molto simili solo che al posto della sommatoria c'è l'integrale.
+\section{Funzione di distribuzione cumulata}
+La \textit{funzione di distribuzione cumulata} $F:\mathbb{R}\rightarrow[0,1]$, o cdf, è definita $\forall a \in \mathbb{R}$ come
+\begin{equation*}
+    F(x)=\int_{-\infty}^{a}f(t)dt
+\end{equation*}
+Per il teorema fondamentale del calcolo integrale:
+\begin{equation*}
+    \frac{d}{dx}(F(x))=f(x)
+\end{equation*}
+\end{document}

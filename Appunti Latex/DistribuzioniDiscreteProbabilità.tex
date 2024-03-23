@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+
+\geometry{margin=2cm}
+
+\title{Distribuzioni Discrete di Probabilità}
+\author{Lorenzo Vaccarecci}
+\date{19 Marzo 2024}
+
+\begin{document}
+\maketitle
+\section{Bernoulli}
+Una variabile casuale di \textit{Bernoulli} $X$ assume due soli valori:
+\begin{equation*}
+    P(X=0)=1-p \quad P(X=1)=p
+\end{equation*}
+con $0<p<1$
+\begin{equation*}
+    \mu = \mathbb{E}\left[X\right]=p\times 1+(1-p)\times 0=p
+\end{equation*}
+\begin{equation*}
+    Var(X)=\mathbb{E}\left[X^{2}\right]-\mu^{2}=p-p^{2}=p(1-p)
+\end{equation*}
+\section{Binomiale}
+La variabile casuale \textit{binomiale} $X$ conta i successi in una sequenza di $n$ realizzazioni indipendenti di una variabile casuale di Bernoulli con $p(1)=p$. La sua funzione di probabilità di massa si scrive come
+\begin{equation*}
+    p(i)=\binom{n}{i}p^{i}(1-p)^{n-i} \quad i=0,1,\dots,n
+\end{equation*}
+Il coefficiente binomiale $\binom{n}{i}$ conta in quanti modi diversi si possono realizzare i successi di una sequenza di $n$ realizzazioni indipendenti.
+\begin{equation*}
+    \mathbb{E}\left[X\right]=np 
+\end{equation*}
+\begin{equation*}
+    Var(X)=np(1-p)
+\end{equation*}\newpage
+\section{Geometrica}
+La variabile casuale \textit{geometrica} $X$ vale $n$ se si ottiene un successo dopo $n-1$ fallimenti in una sequenza di $n$ realiizzazioni indipendenti di una variabile casuale di Bernoulli.
+\begin{equation*}
+    P(X=n)=(1-p)^{n-1}p \quad n=1,2,\dots
+\end{equation*} 
+\begin{equation*}
+    \mu=\frac{1}{p}
+\end{equation*}
+\begin{equation*}
+    Var(X)=\frac{(1-p)}{p^{2}}
+\end{equation*}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[xmin=0, xmax=35,ymin=0,xlabel={Pmf},ymax=0.1,xtick={5,10,15,20,25,30,35},ytick={0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.1}, yticklabels={0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.1}]
+            \addplot+[only marks] coordinates {(1,0.1) (2,0.09) (3,0.081) (4,0.0729) (5,0.06561) (6,0.059049) (7,0.0531441) (8,0.04782969) (9,0.043046721) (10,0.038742049) (11,0.0348678441) (12,0.03138105969) (13,0.028242953721) (14,0.025418658349) (15,0.0228767925141) (16,0.02058911326269) (17,0.018530201936421) (18,0.016677181742779) (19,0.015009463568501) (20,0.013508517211651) (21,0.012157665490486) (22,0.010941898941437) (23,0.009847709047293) (24,0.008862938142564) (25,0.007976644328307) (26,0.007178979895476) (27,0.006461081905928) (28,0.005814973715335) (29,0.005233476343802) (30,0.004710128709422) (31,0.00423911583848) (32,0.003815204254632) (33,0.003433683829169) (34,0.003090315446252) (35,0.002781283901627)};
+        \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \begin{axis}[xmin=0, xmax=35,ymin=0,xlabel={cdf},ymax=1,xtick={5,10,15,20,25,30,35},ytick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}, yticklabels={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}]
+            \addplot+[only marks] coordinates {(1,0.1) (2,0.19) (3,0.271) (4,0.3439) (5,0.40951) (6,0.468559) (7,0.5217031) (8,0.56953219) (9,0.612578971) (10,0.6513210741) (11,0.68618896669) (12,0.717570070021) (13,0.745813063019) (14,0.771231756717) (15,0.794108581045) (16,0.81469772294) (17,0.833227950646) (18,0.849905155581) (19,0.864914640023) (20,0.878423176021) (21,0.890580858419) (22,0.901522772577) (23,0.911370495319) (24,0.920233445787) (25,0.928210101208) (26,0.935389091087) (27,0.941850181978) (28,0.94766516378) (29,0.952898647402) (30,0.957608782662) (31,0.961847904396) (32,0.965663113956) (33,0.96909680256) (34,0.972187122314) (35,0.974968410083)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+\end{document}
