@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[dvipsnames]{xcolor}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{compat=1.17, legend pos=south east}
+
+\geometry{margin=2cm}
+
+\title{Distribuzione di probabilità}
+\author{Lorenzo Vaccarecci}
+\date{22 Marzo 2024}
+
+\graphicspath{{./Immagini/}}
+
+\begin{document}
+\maketitle
+\section{Distribuzione di una funzione di variabile casuale}
+\textbf{Esempio}
+\begin{quote}
+Abbiamo $X \text{ distribuita uniformementre tra 0 e 1,abbiamo } f(x)=1 \text{ e } F(x)=x$. Se $Y=X^{n}:$\\
+\(
+  F_{Y}(y)=P(Y\leq y)=P(X?{n}\leq y)=P(X\leq y^{\frac{1}{n}})=F(y^{\frac{1}{n}})=y^{\frac{1}{n}}  
+\)
+\end{quote}
+Dall'esempio possiamo ricavare le formule generali per $Y(g(x))$:
+\begin{equation*}
+    F_{Y}(y)=F(g^{-1}(y))
+\end{equation*}
+\begin{equation*}
+    f_{Y}(y)=f(y)\cdot \frac{d}{dy}(g^{-1}(y))^{*}
+\end{equation*}
+\textit{*Derivata della funzione composta.}
+\section{Distribuzione normale (o Gaussiana)}
+$X=\mathcal{N}(\mu,\sigma^{2})\quad\mu \text{ e } \sigma > 0$
+\begin{equation*}
+    f(x)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^{2}}}
+\end{equation*}
+\subsection{Valore atteso e varianza}
+Il valore atteso (di una normale standard $Z=\mathcal{N}(0,1)$) è: 
+\begin{equation*}
+    \mathbb{E}[Z]=\int zf(x)dz=\int z\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^{2}}}=\int \textcolor{OliveGreen}{z}\frac{\textcolor{OliveGreen}{e^{-\frac{z^{2}}{2}}}}{\sqrt{2\pi}}dz=0
+\end{equation*}
+L'area in verde è nulla, quindi il valore atteso è 0.
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[axis lines=center,xlabel=$x$,ylabel=$\mathcal{N}$]
+        \addplot[domain=-10:10,samples=100,color=blue]{exp(-x^2/2)};
+        \addplot[domain=-5:5,samples=100,color=red, name path=B]{x};
+        \addplot[domain=-10:10,samples=100,color=violet, name path=A]{x*exp(-x^2/2)};
+        \addlegendentry{$e^{-\frac{z^{2}}{2}}$}
+        \addlegendentry{$z$}
+        \addlegendentry{$z\cdot e^{-\frac{z^{2}}{2}}$}
+
+        \path[name path=axis] (axis cs:0,0) -- (axis cs:1,0);
+        \addplot[OliveGreen] fill between[of=A and axis, soft clip={domain=-5:5}];
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+La varianza è (per parti):
+\begin{equation*}
+    Var(Z)=\int \frac{z^2e^{\frac{-z^{2}}{2}}}{\sqrt{2\pi}}dz=\dots=1
+\end{equation*}
+\end{document}
