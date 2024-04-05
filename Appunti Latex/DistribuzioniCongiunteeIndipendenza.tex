@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+
+\geometry{margin=2cm}
+
+\title{Distribuzioni Congiunte e Indipendenza}
+\author{Lorenzo Vaccarecci}
+\date{4 Aprile 2024}
+
+\graphicspath{{./Immagini/}}
+
+\begin{document}
+\maketitle
+\section{Caso discreto}
+La distribuzione di una coppia di variabili congiunte $(X,Y)$ con valori $\{x_{1},\ldots,x_{N}\}$ e $\{y_{1},\ldots,y_{M}\}$ è data da una \textit{pmf}
+\begin{equation*}
+    P(X= x_{i}, Y = y_{j}) = p(x_{i},y_{j}) \quad \text{ con } i = 1,2,\ldots,N \quad j = 1,2,\ldots,M
+\end{equation*}
+\begin{equation*}
+    \sum_{i=1}^{N} \sum_{j=1}^{M} p(x_{i},y_{j}) = 1
+\end{equation*}
+\section{Distribuzioni marginali}
+\subsection*{Storiella}
+\begin{center}
+    \(
+        \begin{bmatrix}
+            p(1,1) & p(1,2) & \ldots & p(1,M) \\ 
+            p(2,1) & p(2,2) & \ldots & p(2,M) \\
+            \vdots & \vdots & \ddots & \vdots \\
+            p(N,1) & p(N,2) & \ldots & p(N,M)
+        \end{bmatrix}    
+    \)
+\end{center}
+$$
+\left[\begin{array}{cccc}  
+    (x_{1},y_{1}) & (x_{1},y_{2}) & \ldots & (x_{1},y_{M}) \\
+    (x_{2},y_{1}) & (x_{2},y_{2}) & \ldots & (x_{2},y_{M}) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    (x_{N},y_{1}) & (x_{N},y_{2}) & \ldots & (x_{N},y_{M})
+\end{array}\right] \begin{array}{c}
+	\sum_{j=1}^{M} p(1,j) \\
+	\vphantom{} \\
+    \vphantom{} \\
+    \vphantom{}
+\end{array}
+$$
+$$
+\begin{array}{cccc}
+    \sum_{i=1}^{N} p(i,1) & \hphantom{} & \hphantom{} & \hphantom{} 
+\end{array}
+$$
+\begin{equation*}
+    p_{X}(x_{i}) = P(X=x_{i}) = \sum_{j=1}^{M} p(x_{i},y_{j}) \quad \text{ e } \quad p_{Y}(y_{j}) = P(Y=y_{j}) = \sum_{i=1}^{N} p(x_{i},y_{j})
+\end{equation*}
+$p_{X}$ è praticamente la somma di una riga, mentre $p_{Y}$ è la somma di una colonna.
+\begin{equation*}
+    p_{X}+p_{Y} = 2
+\end{equation*}
+\end{document}
