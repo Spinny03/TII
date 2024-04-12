@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+
+\geometry{margin=2cm}
+
+\title{Proprietà dei Valori Attesi}
+\author{Lorenzo Vaccarecci}
+\date{5 Aprile 2024}
+
+\graphicspath{{./Immagini/}}
+
+\begin{document}
+\maketitle
+\section{Funzione di variabili casuali}
+Il valore atteso di $g(X,Y)$, nel caso discreto, può essere calcolato come
+\begin{equation*}
+    \mathbb{E}[g(X,Y)]=\sum_{x}\sum_{y} g(x,y)p(x,y)
+\end{equation*}
+Se $g(X,Y)=X+Y$
+\begin{equation*}
+    \mathbb{E} = \sum_{x}\sum_{y} (x+y)p(x,y) = \ldots = \mathbb{E}[X]+\mathbb{E}[Y]
+\end{equation*}
+Se $g(X,Y)=XY$
+\begin{equation*}
+    \mathbb{E}[XY]=\mathbb{E}[X]\mathbb{E}[Y]
+\end{equation*}
+solo se $X$ e $Y$ sono indipendenti.
+\subsection{Valore atteso di una variabile casuale binomiale}
+Bernoulli con $\mathbb{E}[X_{i}]=p$ per tutti gli $i$.
+\begin{equation*}
+    \mathbb{E}[X]=\mathbb{E}\left[\sum_{i=1}^{n}X_{i}\right]=np
+\end{equation*}
+\section{Media e varianza campionaria}
+Se le $X_{i} \text{ per } i = 1,\ldots,n$ sono variabili casuali \textbf{identicamente} e \textbf{indipendentemente} distribuite con valore atteso $\mu$ e varianza $\sigma^{2}$ definiamo la \textit{media campionaria} $\langle X_{n}\rangle$ e la \textit{varianza campionaria} $S^{2}$ come
+\begin{equation*}
+    \langle X_{n} \rangle = \frac{\sum_{i}X_{i}}{n}
+\end{equation*}
+\begin{equation*}
+    \mathbb{E}[\langle X_{n} \rangle] = \frac{\sum_{i}\mathbb{E}[X_{i}]}{n} = \mu
+\end{equation*}
+\section{Covarianza e varianza di somme}
+Se le $X$ e $Y$ sono indipendenti
+\begin{equation*}
+    \mathbb{E}[g(X)h(Y)]=\sum_{x}\sum_{y}g(x)h(y)p(x,y)=\sum_{x}g(x)p(x)\sum_{y}h(y)p(y)=\mathbb{E}[g(X)]\mathbb{E}[h(Y)]
+\end{equation*}
+La covarianza di due variabili casuali $X$ e $Y$ è definita come $Cov(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]$
+\begin{equation*}
+    Cov(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]
+\end{equation*}
+Se $X$ e $Y$ sono indipendenti allora $Cov(X,Y)=0$.
+\begin{equation*}
+    Cov(\alpha X+Y)= \ldots = \alpha Cov(X,Y)
+\end{equation*}
+\subsection{Varianza}
+\begin{equation*}
+    Var(\alpha X)= \alpha^{2}Var(X)
+\end{equation*}
+\begin{equation*}
+    Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)
+\end{equation*}
+Se indipendenti
+\begin{equation*}
+    Var(X+Y)=Var(X)+Var(Y)
+\end{equation*}
+\subsection{Correlazione}
+La correlazione $\rho(X,Y)$ di due variabili casuali $X$ e $Y$ è definita come
+\begin{equation*}
+    \rho(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
+\end{equation*}
+Abbiamo che $-1\leq \rho(X,Y)\leq 1$.
+\\\textbf{Dimostrazione:}
+\scriptsize
+\begin{equation*}
+    Var\left(\frac{X}{\sigma}+\frac{Y}{\tau}\right) =
+    Var\left(\frac{X}{\sigma}\right)+Var\left(\frac{Y}{\tau}\right)+2Cov\left(\frac{X}{\sigma},\frac{Y}{\tau}\right) = 
+    \frac{1}{\sigma^{2}}Var(X)+\frac{1}{\tau^{2}}Var(Y)+2\frac{1}{\sigma\tau}Cov(X,Y)=
+    2(1+\rho(X,Y)) \geq 0
+\end{equation*}
+\normalsize
+Per dimostrare che è $\leq 1$ basta usare $Var\left(\frac{X}{\sigma}-\frac{Y}{\tau}\right)$ e il procedimento è lo stesso di prima.
+\section{In generale}
+$X_{1},\ldots,X_{T} \quad \otimes_{i=1}^{T}\left\{X_{1}^1,\ldots,X_{N_{i}}^{i}\right\}$ (prodotto cartesiano di $T$ insiemi di variabili casuali).
+\begin{equation*}
+    \sum p(i,\ldots,i_{T})=1
+\end{equation*}
+\begin{equation}
+    \mathbb{E}\left[\sum_{t=1}^{T}X_{t}\right]=\sum_{t=1}^{T}\mathbb{E}\left[X_{t}\right]
+\end{equation}
+\begin{equation}
+    Var\left(\sum_{t=1}^{T}X_{t}\right)=\sum_{t=1}^{T}Var(X_{t})
+\end{equation}
+$X_{t}$ identiche $\mathbb{E}[X_{t}]=\mu$, $\mu_{t}=\frac{1}{T}\sum_{t=1}^{T}=\mu_{t}$
+\begin{equation}
+    \mathbb{E}\left[\sum_{t=1}^{T}X_{t}\right]=T\mu
+\end{equation}
+Dalla terza equazione si può ricavare la \textbf{media campionaria} dividendo per $T$.
+\end{document}
