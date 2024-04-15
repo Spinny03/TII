@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+\geometry{margin=2cm}
+
+\title{Formulario}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Nome} & \textbf{Formula} & \textbf{Uso} \\
+        \hline
+        Principio Base & $m\cdot n \cdot \ldots$ & Per le quantità \\
+        \hline
+        Permutazione & $N!$ & Ordinamento di $N$ oggetti\\
+        \hline
+        Permutazione raggruppata & $n!m!\ldots n\_gruppi!$ & Ordinamento di diversi oggetti raggruppati\\
+        \hline
+        Disposizione & $\frac{n!}{(n-i)!}$ & Ordinamento di $i$ oggetti in un gruppo $n$ \\
+        \hline
+        Combinazioni senza ripetizione & $\binom{n}{i}=\frac{n!}{i!(n-i)!}$ & Scelta di $i$ oggetti tra $n$\\
+        \hline
+        Combinazioni con ripetizione & $\binom{n+i-1}{n}=\frac{(n+i-1)!}{n!(i-1)!}$ & Scelta ripetuta di $i$ oggetti tra $n$\\
+        \hline
+    \end{tabular}
+\end{center}
+\end{document}
