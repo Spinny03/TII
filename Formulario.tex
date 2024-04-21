@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{array}
 
 \geometry{margin=2cm}
 
@@ -14,21 +15,53 @@
 \begin{document}
 \maketitle
 \begin{center}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{ | m{10em} | m{25em} |}
         \hline
-        \textbf{Nome} & \textbf{Formula} & \textbf{Uso} \\
+        \textbf{Nome} & \textbf{Formula}\\
         \hline
-        Principio Base & $m\cdot n \cdot \ldots$ & Per le quantità \\
+        Principio Base & $m\cdot n \cdot \ldots$ \\
         \hline
-        Permutazione & $N!$ & Ordinamento di $N$ oggetti\\
+        Permutazione & $N!$ \\
         \hline
-        Permutazione raggruppata & $n!m!\ldots n\_gruppi!$ & Ordinamento di diversi oggetti raggruppati\\
+        Permutazione raggruppata & $n!m!\ldots n\_gruppi!$ \\
         \hline
-        Disposizione & $\frac{n!}{(n-i)!}$ & Ordinamento di $i$ oggetti in un gruppo $n$ \\
+        Disposizione & $\frac{n!}{(n-i)!}$ \\
         \hline
-        Combinazioni senza ripetizione & $\binom{n}{i}=\frac{n!}{i!(n-i)!}$ & Scelta di $i$ oggetti tra $n$\\
+        Combinazioni senza ripetizione & $\binom{n}{i}=\frac{n!}{i!(n-i)!}$ \\
         \hline
-        Combinazioni con ripetizione & $\binom{n+i-1}{n}=\frac{(n+i-1)!}{n!(i-1)!}$ & Scelta ripetuta di $i$ oggetti tra $n$\\
+        Combinazioni con ripetizione & $\binom{n+i-1}{n}=\frac{(n+i-1)!}{n!(i-1)!}$ \\
+        \hline
+        Probabilità & $P=\frac{Favorevoli}{Totali}$ \\
+        \hline
+        Probabilità dell'unione & $P(E\cup F)=P(E)+P(F)$ \\
+        \hline
+        Probabilità dell'unione & $P(E\cup F)=P(E)+P(F)-P(EF)$ \\
+        \hline
+        Probabilità condizionata & $P(E|F)=\frac{P(EF)}{P(F)}$ \\
+        \hline
+        Regola della moltiplicazione & $P(E_{1}E_{2}\ldots E_{n})=P(E_{1})P(E_{2}|E_{1})\ldots P(E_{n}|E_{1}E_{2}\ldots E_{n-1})$ \\
+        \hline
+        Bayes & $P(F|E)=\frac{P(E|F)P(F)}{P(E|F)P(F)+P(E|F^{C})P(F^{C})}$ \\
+        \hline
+        Eventi indipendenti & $P(EF)=P(E)P(F) \rightarrow P(E|F)=\frac{P(E)P(F)}{P(F)}=P(E)$\\
+        \hline
+        Funzione probabilità di massa & $p(x_{i})=P(X=x_{i})=\frac{Favorevoli_{x_{i}}}{Totali}$\\
+        \hline
+        Funzione probabilità cumulata & $ F(a)=\sum_{x_{i}\leq a}p(x_{i})$ \\
+        \hline
+        Valore atteso & $\mathbb{E}[X]=\sum^{n}_{i=1}x_{i}p(x_{i})$\\
+        \hline
+        Varianza & $Var(X)=\mathbb{E}[(X-\mathbb{E}[X])^{2}]=\sum_{i=1}^{n}|x_{i}-\mathbb{E}[X]|^{2}p_{i}$ \\
+        \hline
+        Deviazione standard & $SD(X)=\sqrt{Var(X)}$ \\
+        \hline
+        Funzione di variabile aleatoria discreta & $\mathbb{E}[g(x)]=\sum_{i=1}^{n}g(x_{i})p(x_{i})$ \\
+        \hline
+        Bernoulli & $P(0)=1-p \quad P(1)=p \quad \mathbb{E}[X]=p \quad Var(X)=p(1-p$)\\
+        \hline
+        Binomiale & $p(i)=\binom{n}{i}p^{i}(1-p)^{n-i} \quad \mathbb{E}[X]=np \quad Var(X)=np(1-p)$\\
+        \hline
+        Geometrica & $P(X=n)=(1-p)^{n-1}p \quad \mathbb{E}[X]=\frac{1}{p} \quad Var(X)=\frac{(1-p)}{p^{2}}$\\
         \hline
     \end{tabular}
 \end{center}
