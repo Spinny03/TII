@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+\geometry{margin=2cm}
+
+\title{Teoria dell'Informazione}
+\author{Lorenzo Vaccarecci}
+\date{18 Aprile 2024}
+
+\graphicspath{{./Immagini/}}
+
+\begin{document}
+\maketitle
+\section{Misura di informazione}
+Una misura della quantità di informazione che si acquisisce una volta che si sia realizzato un evento casuale di probabilità $p>0$ è l'informazione di \textbf{Shannon} definita come
+\begin{equation*}
+    \log_{2}\frac{1}{p}
+\end{equation*}
+L'unità di misura dell'informazione è il \textbf{bit}.\\
+L'informazione acquisita da eventi indipendenti è la somma delle informazioni di Shannon associate a ogni evento.
+\subsection{Entropia di una variabile casuale}
+L'entropia di $X$ è il valore atteso dell'informazione di Shannon
+\begin{equation*}
+    H(X)=\sum_{i=1}^{N} p_{X}(x_{i})\log_{2}\frac{1}{p_{X}(x_{i})}
+\end{equation*}
+Nel caso in cui $X$ assuma due soli valori (Bernoulli), rispettivamente con probabilità $p$ e $1-p$, l'entropia diventa
+\begin{equation*}
+    H_{2}(X)=p\log_{2}\frac{1}{p}+(1-p)\log_{2}\frac{1}{1-p}
+\end{equation*}
+Se equiprobabili
+\begin{equation*}
+    H(X)=\log_{2}N
+\end{equation*}
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+\geometry{margin=2cm}
+
+\title{Entropia Congiunta e Condizionata}
+\author{Lorenzo Vaccarecci}
+\date{19 Aprile 2024}
+
+\graphicspath{{./Immagini/}}
+
+\begin{document}
+\maketitle
+\section{Definizioni}
+$p(x{i},y_{j})=p_{X}(x_{i})p(y_{j}|x_{i})$
+\subsection{Entropia Congiunta}
+Per l'entropia congiunta $H(X,Y)$ abbiamo
+\begin{equation*}
+    H(X,Y)=\sum_{i=1}^{N}\sum_{j=1}^{M}p(x_{i},y_{j})\log_{2}\frac{1}{p(x_{i},y_{j})}
+\end{equation*}
+\subsection{Entropia Condizionata}
+\begin{equation*}
+    H(X|Y=y_{j})=\sum_{i=1}^{N}p(x_{i}|y_{j})\log_{2}\frac{1}{p(x_{i}|y_{j})}
+\end{equation*}
+\begin{equation*}
+    H(X|Y)=\sum_{j=1}^{M}p_{Y}(y_{j})H(X|Y=y_{j})
+\end{equation*}
+\subsubsection{Osservazione}
+\begin{equation*}
+    H(X,Y)=H(X|Y)+H(Y)
+\end{equation*}
+\begin{equation*}
+    H(X|Y)<H(X)
+\end{equation*}
+\begin{equation*}
+    H(Y|X)<H(Y)
+\end{equation*}
+Sono $\leq \iff$ indipendenti
+\subsection{Uguaglianza fondamentale}
+Per ogni coppia di variabili casuali discrete $X$ e $Y$ si ha
+\begin{equation*}
+    H(X,Y)=H(X|Y)+H(Y)=H(Y|X)+H(X)
+\end{equation*}
+\textit{Dimostrazione negli appunti.}
+\subsection{Disuguaglianza fondamentale}
+La realizzazione di $Y$ non può aumentare l'entropia di $X$. Se $X$ e  $Y$ sono variabili casuali, allora
+\begin{equation*}
+    H(X|Y)\leq H(X)
+\end{equation*}
+\textit{Dimostrazione negli appunti.}
+\subsection{Osservazione}
+Combinando le due relazioni otteniramo che se le variabili $X$ e $Y$ sono indipendenti
+\begin{equation*}
+    H(X,Y)=H(X)+H(Y)
+\end{equation*}
+ovvero l'entropia congiunta è uguale alla somma delle entropie
+\end{document}
