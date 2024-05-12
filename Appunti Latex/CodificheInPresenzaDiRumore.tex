@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+\geometry{margin=2cm}
+
+\title{Codifiche in presenza di rumore}
+\author{Lorenzo Vaccarecci}
+\date{10 Maggio 2024}
+
+\graphicspath{{./Immagini/}}
+
+\begin{document}
+\maketitle
+\section{Ripasso: Distanza di Hamming}
+Per due sequenze di bit $u=u_{1}u_{2}\ldots u_{N} \text{ e } v=v_{1}v_{2}\ldots v_{N}$ di lunghezza $N$ la distanza di Hamming $d_{H}(u,v)$ è definita come il  numero di posizioni nelle quali i bit delle due sequenze sono diversi.\\
+Proprietà:
+\begin{itemize}
+    \item \textit{Simmetria}: $d_{H}(u,v)=d_{H}(v,u)$
+    \item \textit{Non negatività}: $d_{H}(u,v)\geq 0, d_{H}(u,v)=0$ se $u=v$
+    \item \textit{Disuguaglianza triangolare}: $d_{H}(u,w)+d_{H}(w,v)\geq d_{H}(u,v)$
+\end{itemize}
+\section{Codifica convoluzionale}
+Data una sequenza di input $x$ di lunghezza $N$, facciamo scorrere una finestra di lunghezza $K$ su $x$ avanzando di una posizione alla volta, indichiamo con $P$ la dimensione di un blocco. Indichiamo con $x[n]$ l'$n$-esimo bit della sequenza $x$ con $n=1,2,\ldots, N$.
+\begin{equation*}
+    y_{i}[n] = \left(\sum_{j=0}^{K-1}w_{i}[j]x[n-j]\right)\% 2
+\end{equation*}
+dove $w_{i}$ sono le finstre di lunghezza $K$ a partire dalla prima cifra ("fuori dalle parentesi") di $x$ con $i=1, 2,\ldots, P$. Se $x$ non è perfettamente divisibile per $w_{1}$ bisogna prendere i rimanenti bit dal fondo di $x$.\\
+\textbf{Esempio:}\\
+$x=1101, P=3=K, N=4$\\
+A $x$ aggiungiamo degli zeri ($K-1$) per comodità ottenendo $x=(0)(0)1101$, ora calcoliamo la sequenza di output $y$. $w_{1}=[111], w_{2}=[110], w_{3}=[101]$.
+\begin{equation*}
+    y_{1}[1] = \left(\sum_{j=0}^{2}w_{1}[j]x[1-j]\right)\% 2
+    = (1\cdot 1 + 1 \cdot 0 + 1 \cdot 0) \% 2 = 1
+\end{equation*}
+\begin{equation*}
+    y_{2}[1] = \left(\sum_{j=0}^{2}w_{2}[j]x[1-j]\right)\%2
+    = (1 \cdot 1 + 1 \cdot 0 + 0 \cdot 0)\% 2 = 1
+\end{equation*}
+\begin{equation*}
+    y_{3}[1] = \left(\sum_{j=0}^{2}w_{3}[j]x[1-j]\right)\% 2
+    = (1 \cdot 1 + 0 \cdot 0 + 1 \cdot 0)\% 2 = 1
+\end{equation*}
+Quindi y[1] = 111, ripetiamo per ogni $n = 1,2,3,4$ ottenendo il risultato: $y=111\quad001\quad011\quad010$
+\subsection{Costruire FSM}
+Dopo aver calcolato $y$ dobbiamo costruire la FSM per decodificare $y$ partendo dalla prima cifra (comprese quelle "tra parentesi") e poi fare le casistiche.
+\begin{center}
+    \begin{tikzpicture}[shorten >= 1pt, node distance = 4cm, on grid, auto]
+        \node[state, initial] (00) {00};
+        \node[state, right=of 00] (01) {01};
+        \node[state, below=of 01] (11) {11};
+        \node[state, below=of 00] (10) {10};
+        \path[->]
+        (00) edge [loop above] node {0/000} (00)
+            edge node {1/111} (01)
+        (01) edge node {1/001} (11)
+            edge [bend left] node {0/110} (10)
+        (11) edge [loop below] node {1/100} (11) 
+            edge node {0/011} (10)   
+        (10) edge node {0/010} (00)
+            edge [bend left] node {1/101} (01);
+    \end{tikzpicture}    
+\end{center}
+\end{document}
