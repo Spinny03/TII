@@ -8,61 +8,104 @@
 
 \geometry{margin=2cm}
 
-\title{Formulario}
+\title{Formulario A.A 2023/2024}
 \author{}
-\date{}
 
 \begin{document}
 \maketitle
-\begin{center}
-    \begin{tabular}{ | m{10em} | m{25em} |}
-        \hline
-        \textbf{Nome} & \textbf{Formula}\\
-        \hline
-        Principio Base & $m\cdot n \cdot \ldots$ \\
-        \hline
-        Permutazione & $N!$ \\
-        \hline
-        Permutazione raggruppata & $n!m!\ldots n\_gruppi!$ \\
-        \hline
-        Disposizione & $\frac{n!}{(n-i)!}$ \\
-        \hline
-        Combinazioni senza ripetizione & $\binom{n}{i}=\frac{n!}{i!(n-i)!}$ \\
-        \hline
-        Combinazioni con ripetizione & $\binom{n+i-1}{n}=\frac{(n+i-1)!}{n!(i-1)!}$ \\
-        \hline
-        Probabilità & $P=\frac{Favorevoli}{Totali}$ \\
-        \hline
-        Probabilità dell'unione & $P(E\cup F)=P(E)+P(F)$ \\
-        \hline
-        Probabilità dell'unione & $P(E\cup F)=P(E)+P(F)-P(EF)$ \\
-        \hline
-        Probabilità condizionata & $P(E|F)=\frac{P(EF)}{P(F)}$ \\
-        \hline
-        Regola della moltiplicazione & $P(E_{1}E_{2}\ldots E_{n})=P(E_{1})P(E_{2}|E_{1})\ldots P(E_{n}|E_{1}E_{2}\ldots E_{n-1})$ \\
-        \hline
-        Bayes & $P(F|E)=\frac{P(E|F)P(F)}{P(E|F)P(F)+P(E|F^{C})P(F^{C})}$ \\
-        \hline
-        Eventi indipendenti & $P(EF)=P(E)P(F) \rightarrow P(E|F)=\frac{P(E)P(F)}{P(F)}=P(E)$\\
-        \hline
-        Funzione probabilità di massa & $p(x_{i})=P(X=x_{i})=\frac{Favorevoli_{x_{i}}}{Totali}$\\
-        \hline
-        Funzione probabilità cumulata & $ F(a)=\sum_{x_{i}\leq a}p(x_{i})$ \\
-        \hline
-        Valore atteso & $\mathbb{E}[X]=\sum^{n}_{i=1}x_{i}p(x_{i})$\\
-        \hline
-        Varianza & $Var(X)=\mathbb{E}[(X-\mathbb{E}[X])^{2}]=\sum_{i=1}^{n}|x_{i}-\mathbb{E}[X]|^{2}p_{i}$ \\
-        \hline
-        Deviazione standard & $SD(X)=\sqrt{Var(X)}$ \\
-        \hline
-        Funzione di variabile aleatoria discreta & $\mathbb{E}[g(x)]=\sum_{i=1}^{n}g(x_{i})p(x_{i})$ \\
-        \hline
-        Bernoulli & $P(0)=1-p \quad P(1)=p \quad \mathbb{E}[X]=p \quad Var(X)=p(1-p$)\\
-        \hline
-        Binomiale & $p(i)=\binom{n}{i}p^{i}(1-p)^{n-i} \quad \mathbb{E}[X]=np \quad Var(X)=np(1-p)$\\
-        \hline
-        Geometrica & $P(X=n)=(1-p)^{n-1}p \quad \mathbb{E}[X]=\frac{1}{p} \quad Var(X)=\frac{(1-p)}{p^{2}}$\\
-        \hline
-    \end{tabular}
-\end{center}
+\section{Esercizio 1}
+\begin{itemize}
+    \item \textbf{Anagrammi}: $A = \frac{\text{totale lettere}!}{\text{lettere uguali}!\cdot\text{altre lettere uguali}!}$
+    \item \textbf{Combinazione senza duplicati}: $C = n\cdot (n-1)\cdot\ldots\cdot(n-k)$
+    \item \textbf{Combinazione con duplicati}: $C = n!$
+    \item \textbf{Gruppi di amici}: $G = \frac{\text{totale}!}{\text{cardinalità gruppo}!\cdot(\text{totale-cardinalità gruppo})}$
+\end{itemize}
+\section{Esercizio 2}
+\begin{itemize}
+    \item \textbf{Valore atteso}: $E[g(X)] = \sum_{i=1}^{n}g(x_i)\cdot p_i$
+    \item \textbf{Valore atteso con la variabile che fa parte di una congiunta}: $E[g(X)] = \sum_{y}\sum_{x}=g(X=x)\cdot p(x,y)$
+    \item \textbf{Probabilità condizionata}: $P(X|Y) = \frac{P(X,Y)}{P(Y)}$
+    \item \textbf{Trovare probabilità (marginali) di una variabile che fa parte di una congiunta}: $P(X) = \sum_{y}P(X,y)$
+\end{itemize}
+\section{Esercizio 3}
+\subsection{Funzione densità di probabilità (pdf)}
+\begin{equation*}
+    f(x) = \begin{cases}
+        a & \text{se } x \in [y,z]\cup[w,k]\\
+        0 & \text{altrimenti}
+    \end{cases}
+\end{equation*}
+\begin{equation*}
+    a = \int_{y}^{z}a \,dx + \int_{w}^{k}a \,dx = 1
+\end{equation*}
+\subsection{Funzione di distribuzione cumulativa (cdf)}
+\begin{equation*}
+    F(X) = \begin{cases}
+        0 & \text{se } x < y\\
+        \int_{y}^{x}a \,dx & \text{se } x \in [y,z]\\
+        \int_{w}^{x}a \,dx  & \text{se } x \in [w,k]\\
+        1 & \text{se } x > k
+    \end{cases}
+\end{equation*}
+\section{Esercizio 4}
+Domanda teorica
+\section{Esercizio 5}
+\begin{itemize}
+    \item Bit di guadagno se equiprobabili: $\log_{2}(\text{\#possibilità})-\log_{2}(\text{\#tentativi})$
+    \item Bit di guadagno se non equiprobabili: $\log_{2}(\frac{1}{\frac{1}{\text{\#possibilità}}})-\log_{2}(\frac{1}{\frac{\text{\#tentativi}}{\text{\#possibilità}}})$
+    \item Entropia condizionata: $H(X|Y)=H(X,Y)-H(Y)$, $H(Y|X)=H(X,Y)-H(X)$. Se $X$ e $Y$ sono indipendenti, $H(X|Y)=H(X)$ altrimenti 0.
+    \item Entropia congiunta: $H(X,Y) = H(Y)+H(X|Y)=H(X)+H(Y|X)$
+\end{itemize}
+\section{Esercizio 6}
+\begin{itemize}
+    \item Trovare codifica convoluzionale per $x[k]$ date le equazioni di parità $y_{i}[n]$: sostituisci $n$ con $k$ e risolvi le operazioni eseguendo poi il modulo 2.
+    \item Entropia già spiegata nell'es 5
+\end{itemize}
+\section{Esercizio 7}
+\begin{itemize}
+    \item Determinare se è codifica di Huffman/istantanea: $\sum_{x\in\text{alfabeto}}2^{-L_{C}(x)}\leq 1$
+    \item Lunghezza attesa: $H(X)=\sum_{i=1}^{|\text{alfabeto}|}p_{i}\log_{2}\frac{1}{p_{i}}$
+    \item Determinare se è ottimale: \begin{enumerate}
+        \item Calcolo lunghezza attesa
+        \item $L(C,\text{alfabeto})=\sum_{i=1}^{|\text{alfabeto}|} p_{i}\cdot L_{C}(x_{i})$
+        \item Se $L(C,\text{alfabeto}) = H(X)$ allora è ottimale, $\leq H(X)$ c'è spreco, $> H(X)$ c'è inefficienza.
+    \end{enumerate}
+\end{itemize}
+\section{Esercizio 8}
+\begin{itemize}
+    \item Codifica aritmetica
+    \item Codifica di Huffman a blocchi: \begin{enumerate}
+        \item Determinare tutti i possibili blocchi
+        \item Calcolarne la probabilità moltiplicando le probabilità dei singoli simboli tra di loro
+        \item Applicare Huffman
+    \end{enumerate}
+\end{itemize}
+\section{Esercizio 9/10}
+\begin{itemize}
+    \item Cassetto di monete: \begin{enumerate}
+        \item Determino probabilità di ottenere le monete $P(M_{k})$
+        \item Determino probabilità di ottenere testa/croce con le monete $P(x|M_{k})$
+        \item Calcolare probabilità di ottenere testa/croce pescando a caso: $P(x) = \sum_{k}P(M_{k})\cdot P(x|M_{k})$
+        \item Calcolare probabilità di ottenere testa/croce usando la stessa moneta: $P(xy) = P(x)-(1-P(x))$
+    \end{enumerate}
+    \item Verosomiglianza di una sequenza: $L(x|\theta)=\Pi_{i}p_{i}$
+    \item Verosomiglianza distribuita uniformemente: $L(x|S)=\begin{cases}
+        \frac{1}{S^{n}} & \text{se } S \geq x_{max}\\
+        0 & \text{se } S < x_{max}
+    \end{cases}$, nel caso dei taxi $x_{max}$ è il numero massimo delle licenze di conseguenza metteremo che $S=x_{max}$ se non vengono fornite le ipotesi altrimenti $S$ saranno le ipotesi e $n$ è il numero di taxi osservati.
+\end{itemize}
+\section{Esercizio 11}
+\begin{itemize}
+    \item Conferma che sia matrice di transizione: la somma delle righe deve essere 1
+    \item Conferma che sia regolare: esiste un passo $t$ tale che $P^{t}_{rc}>0$
+    \item Distribuzione stazionaria:\begin{enumerate}
+        \item $\pi = \pi\cdot P$ con $\pi_{i}$ somma degli elementi della colonna
+        \item Condizione: $\sum_{i}\pi_{i}=1$
+        \item Isolo una delle $\pi_{i}$ e risolvo il sistema
+        \item $\pi = \begin{pmatrix}
+            \pi_{1} & \pi_{2} & \ldots & \pi_{n}
+        \end{pmatrix}$
+    \end{enumerate} 
+    \item Distribuzione limite: $\lim_{t\to\infty}P^{t} = \lambda_{j}$ esiste se $P^{t}$ converge alla matrice con tutte le righe uguali a $\lambda_{j}$, non può esistere se la matrice non è regolare. Se la matrice è irriducibile e aperiodica, la distribuzione limite esiste e coincide con la distribuzione stazionaria.
+\end{itemize}
 \end{document}
