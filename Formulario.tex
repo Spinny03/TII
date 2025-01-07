@@ -22,10 +22,11 @@
 \end{itemize}
 \section{Esercizio 2}
 \begin{itemize}
-    \item \textbf{Valore atteso}: $E[g(X)] = \sum_{i=1}^{n}g(x_i)\cdot p_i$
-    \item \textbf{Valore atteso con la variabile che fa parte di una congiunta}: $E[g(X)] = \sum_{y}\sum_{x}=g(X=x)\cdot p(x,y)$
+    \item \textbf{Valore atteso}: $\mathbb{E}[g(X)] = \sum_{i=1}^{n}g(x_i)\cdot p_i$
+    \item \textbf{Valore atteso con la variabile che fa parte di una congiunta}: $\mathbb{E}[g(X)] = \sum_{y}\sum_{x}=g(X=x)\cdot p(x,y)$
     \item \textbf{Probabilità condizionata}: $P(X|Y) = \frac{P(X,Y)}{P(Y)}$
     \item \textbf{Trovare probabilità (marginali) di una variabile che fa parte di una congiunta}: $P(X) = \sum_{y}P(X,y)$
+    \item \textbf{Varianza}: $Var(X)=\mathbb{E}[X]^{2}-\mathbb{E}[X^{2}]$
 \end{itemize}
 \section{Esercizio 3}
 \subsection{Funzione densità di probabilità (pdf)}
@@ -86,7 +87,11 @@ Domanda teorica
         \item Determino probabilità di ottenere le monete $P(M_{k})$
         \item Determino probabilità di ottenere testa/croce con le monete $P(x|M_{k})$
         \item Calcolare probabilità di ottenere testa/croce pescando a caso: $P(x) = \sum_{k}P(M_{k})\cdot P(x|M_{k})$
-        \item Calcolare probabilità di ottenere testa/croce usando la stessa moneta: $P(xy) = P(x)-(1-P(x))$
+        \item Calcolare probabilità di ottenere testa/croce usando la stessa moneta: \begin{enumerate}
+            \item Probabilità condizionata per una moneta: $P(xx|M_{k})=P(M_{k})P(x|M_{k})P(x|M_{k})$
+            \item Probabilità congiunta $P(xx) = P(M_{k})P(xx|M_{k})+P(M_{z})P(xx|M_{z})$
+            \item Probabilità condizionata per moneta pescata a caso: $P(x|x) = \frac{P(xx)}{P(x)}$ 
+        \end{enumerate}
     \end{enumerate}
     \item Verosomiglianza di una sequenza: $L(x|\theta)=\Pi_{i}p_{i}$
     \item Verosomiglianza distribuita uniformemente: $L(x|S)=\begin{cases}
